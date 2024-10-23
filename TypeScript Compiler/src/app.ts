@@ -1,5 +1,6 @@
 console.log("Hello");
 
+// The spread operator
 const arr = (a:number , b: string, ...c:any) => {
     console.log(a, b, c);
 }
