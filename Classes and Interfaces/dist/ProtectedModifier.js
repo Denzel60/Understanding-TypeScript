@@ -1,5 +1,5 @@
 "use strict";
-class Department {
+class Department1 {
     //constructor
     // readonly
     constructor(name, id) {
@@ -12,7 +12,7 @@ class Department {
     }
     //method
     describe() {
-        console.log(`Department: ${this.id} ${this.name}`);
+        console.log(`Department1: ${this.id} ${this.name}`);
     }
     addEmployee(employees) {
         this.employees.push(employees);
@@ -22,17 +22,23 @@ class Department {
         console.log(this.employees);
     }
 }
-class ITDepartment extends Department {
+class ITDepartment1 extends Department1 {
     constructor(id, admins) {
         super(id, '23');
         this.admins = admins;
     }
 }
-class AccountingDepartment extends Department {
+class AccountingDepartment1 extends Department1 {
     constructor(id, reports) {
         super(id, 'Accounting');
         this.reports = reports;
         this.reports = reports;
+    }
+    addEmployee(name) {
+        if (name === 'max') {
+            return;
+        }
+        this.employees.push(name);
     }
     addReport(text) {
         this.reports.push(text);
@@ -41,18 +47,6 @@ class AccountingDepartment extends Department {
         console.log(this.reports);
     }
 }
-const accounting = new Department("accounting", '23');
-const accounting1 = new ITDepartment('23', ['Max']);
-console.log(accounting);
-console.log(accounting1);
-// accounting.describe()
-// const accountingCopy = { name: 'DUMMY', describe: accounting.describe }
-// accountingCopy.describe()
 accounting.addEmployee('Max');
 accounting.addEmployee('Manu');
-accounting.describe();
 accounting.printEmployeeInformation();
-// accounting.employees[2] = 'Anne'
-const accounting2 = new AccountingDepartment('d1', []);
-accounting2.addReport('Something went wrong...');
-accounting2.printReports();
